@@ -1,3 +1,5 @@
+/* ---- bubbling ----- */
+
 
 /* -------🥨 3. 향상된 계산기 ex ----------- */
 
@@ -6,8 +8,14 @@ window.addEventListener("load", () =>{
     let txtInput = section.querySelector("input[type=text]");
     let btnInputs = section.querySelectorAll(".num");
     let box = section.querySelector("div");
+    let divInput = box.querySelector("input[value='/']");
+    
+    divInput.onclick = (e) => {console.log("나눗셈 연산");
+    e.stopPropagation();
+    }
     // div와 태그 구분 ---  버블링 적용
     box.onclick = (e) => {
+        e.preventDefault();
         //box 안에서 이벤트 발생 -> element로 한정
         //text의 name 값은 ?
         // console.log(e.target.nodeValue);
@@ -20,6 +28,7 @@ window.addEventListener("load", () =>{
         if(e.target.nodeName!="INPUT")
         return;
 
+        console.log("버튼 클릭");
         txtInput.value += e.target.value;
         
     }

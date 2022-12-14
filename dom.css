@@ -1,0 +1,8 @@
+#s3 .box{
+    display: grid;
+    grid-template: repeat(6, 50px) / repeat(4, 50px);
+
+}
+#s3 .box input[type=text] {
+    grid-area: 1/1/2/-1;
+}
