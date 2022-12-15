@@ -1,6 +1,46 @@
-/* ---- bubbling ----- */
-// issue test
+/* ----🥨4. 스타일 속성명과 값bubbling ----- */
+    window.addEventListener("load", () =>{
+        let section = document.querySelector("#s4");
+        let styleInput = section.querySelector(".style-input");
+        let widthInput = section.querySelector(".width-input");
+        let radiusInput = section.querySelector(".radius-input");
+        let colorInput = section.querySelector(".color-input");
+        let item = section.querySelector(".item");
+        let outputDiv = section.querySelector(".output");
+        
+        // onchange / onmousedown / onInput
+        styleInput.oninput = (e) =>{
+            item.style.borderStyle = styleInput.value;
+            outputDiv.innerText = item.style.cssText;
+        }
+        
+        widthInput.oninput = (e) =>{
+            item.style.borderWidth = widthInput.value+"px";
+            outputDiv.innerText = item.style.cssText;
+        }
+        
+        radiusInput.oninput = (e) => {
+            item.style.borderRadius = radiusInput.value+"px";
+            outputDiv.innerText = item.style.cssText;
+        }
+   
+        colorInput.oninput = (e) => {
+            item.style.backgroundColor = colorInput.value;
+            outputDiv.innerText = item.style.cssText;
+        }
+     
+    })
 
+
+    //txt1.style.width = 100; 
+    //txt1.style.width = "100px";  
+    //기본적으로 엘리먼트는 스타일 속성을 가지고있다.
+    //그 엘리먼트의 스타일속성은 대부분 string이기때문에 단위를 붙여서 "안에 표기"
+    //ex) 속성명이 border-color 같이 '-' 구분자가 필요한 경우
+    // -> 자바스크립트에는 -구분자가 없기때문에 카멜케이스로 구분
+    // txt1.style["background-color"] = "red"; O
+    // txt1.style.backgroundColor = "red"; O
+    
 /* -------🥨 3. 향상된 계산기 ex ----------- */
 
 window.addEventListener("load", () =>{
